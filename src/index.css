@@ -960,9 +960,8 @@ body {
 }
 
 .ww-logo {
-  width: 190px;
+  width: 150px;
   height: 68px;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
