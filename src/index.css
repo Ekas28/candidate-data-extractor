@@ -74,7 +74,7 @@ body {
   max-width: 1500px;
   height: 100%;
   margin: auto;
-  padding: 0 36px;
+  padding: 0 20px;
 
   display: flex;
   align-items: center;
@@ -151,7 +151,7 @@ body {
 .ww-main {
   width: min(1200px, calc(100% - 48px));
   margin: auto;
-  padding: 18px 0 70px;
+  padding: 8px 0 20px;
 }
 
 /* =====================================================
