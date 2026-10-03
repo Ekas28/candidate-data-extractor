@@ -73,11 +73,11 @@ function Dashboard() {
       setCandidates([]);
 
       const response = await axios.post(
-        "http://localhost:8000/api/extract",
-        {
-          text: rawText,
-        }
-      );
+  "https://candidate-data-extractor-api.onrender.com/api/extract",
+  {
+    text: rawText,
+  }
+);
 
       setCandidates(response.data.candidates || []);
     } catch (error) {
