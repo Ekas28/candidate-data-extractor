@@ -11,7 +11,6 @@ const {
 
 const app = express();
 
-// Use Render's PORT in production, otherwise use 8000 locally
 const PORT = process.env.PORT || 8000;
 
 // Middleware
@@ -35,7 +34,6 @@ app.get("/api/schema", (req, res) => {
 app.post("/api/extract", (req, res) => {
   const { text } = req.body;
 
-  // Check input
   if (!text || !text.trim()) {
     return res.status(400).json({
       success: false,
@@ -44,23 +42,18 @@ app.post("/api/extract", (req, res) => {
   }
 
   try {
-    // Step 1: Clean the raw text
     const cleanedText = cleanText(text);
 
-    // Step 2: Find individual candidate blocks
     const candidateBlocks = splitCandidates(cleanedText);
 
-    // Step 3: Parse each candidate
     const candidates = candidateBlocks.map((candidateLines) =>
       parseCandidate(candidateLines)
     );
 
-    // Log results in terminal
     console.log(`Detected ${candidates.length} candidates`);
 
     console.log(JSON.stringify(candidates, null, 2));
 
-    // Send results back to frontend
     res.json({
       success: true,
       count: candidates.length,
