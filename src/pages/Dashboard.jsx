@@ -1,7 +1,11 @@
 import workwaveLogo from "../assets/workwave-logo.png";
+
 import { useState } from "react";
+
 import axios from "axios";
+
 import ExcelJS from "exceljs";
+
 import {
   FileSpreadsheet,
   Sparkles,
@@ -20,9 +24,25 @@ const columns = [
   { key: "experience", label: "Experience" },
   { key: "current_salary", label: "Salary" },
   { key: "location", label: "Location" },
+
   { key: "current_designation", label: "Current Designation" },
+
+  // Added standardized current designation
+  {
+    key: "standardized_designation",
+    label: "Standardized Designation",
+  },
+
   { key: "current_company", label: "Current Company" },
+
   { key: "previous_designation", label: "Previous Designation" },
+
+  // Added standardized previous designation
+  {
+    key: "standardized_previous_designation",
+    label: "Standardized Previous Designation",
+  },
+
   { key: "previous_company", label: "Previous Company" },
   { key: "education", label: "Education" },
   { key: "preferred_locations", label: "Preferred Locations" },
@@ -37,9 +57,19 @@ const createEmptyCandidate = () => ({
   experience: "",
   current_salary: "",
   location: "",
+
   current_designation: "",
+
+  // Added standardized current designation
+  standardized_designation: "",
+
   current_company: "",
+
   previous_designation: "",
+
+  // Added standardized previous designation
+  standardized_previous_designation: "",
+
   previous_company: "",
   education: "",
   preferred_locations: [],
@@ -73,11 +103,12 @@ function Dashboard() {
       setCandidates([]);
 
       const response = await axios.post(
-  "https://candidate-data-extractor-api.onrender.com/api/extract",
-  {
-    text: rawText,
-  }
-);
+        "https://candidate-data-extractor-api.onrender.com/api/extract",
+        // "http://localhost:8000/api/extract",
+        {
+          text: rawText,
+        }
+      );
 
       setCandidates(response.data.candidates || []);
     } catch (error) {
@@ -133,7 +164,9 @@ function Dashboard() {
 
     try {
       const workbook = new ExcelJS.Workbook();
-      const worksheet = workbook.addWorksheet("Candidates");
+
+      const worksheet =
+        workbook.addWorksheet("Candidates");
 
       worksheet.columns = columns.map((column) => ({
         header: column.label,
@@ -180,14 +213,17 @@ function Dashboard() {
               style: "thin",
               color: { argb: "D9E2EC" },
             },
+
             left: {
               style: "thin",
               color: { argb: "D9E2EC" },
             },
+
             bottom: {
               style: "thin",
               color: { argb: "D9E2EC" },
             },
+
             right: {
               style: "thin",
               color: { argb: "D9E2EC" },
@@ -208,26 +244,35 @@ function Dashboard() {
         },
       ];
 
-      const buffer = await workbook.xlsx.writeBuffer();
+      const buffer =
+        await workbook.xlsx.writeBuffer();
 
       const blob = new Blob([buffer], {
         type:
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       });
 
-      const url = window.URL.createObjectURL(blob);
+      const url =
+        window.URL.createObjectURL(blob);
 
-      const link = document.createElement("a");
+      const link =
+        document.createElement("a");
+
       link.href = url;
-      link.download = "WorkWave_Candidate_Data.xlsx";
+
+      link.download =
+        "WorkWave_Candidate_Data.xlsx";
 
       document.body.appendChild(link);
+
       link.click();
+
       document.body.removeChild(link);
 
       window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error("Excel export error:", error);
+
       setError("Failed to generate Excel file.");
     }
   };
@@ -241,10 +286,13 @@ function Dashboard() {
         <div className="ww-header-inner">
 
           <div className="ww-brand">
-  <div className="ww-logo">
-    <img src={workwaveLogo} alt="WorkWave Global" />
-  </div>
-</div>
+            <div className="ww-logo">
+              <img
+                src={workwaveLogo}
+                alt="WorkWave Global"
+              />
+            </div>
+          </div>
 
           <div className="ww-tool-label">
             <span className="ww-status-dot"></span>
@@ -257,31 +305,32 @@ function Dashboard() {
 
       {/* ================= MAIN ================= */}
 
-    <main className="ww-main">
+      <main className="ww-main">
 
-  {/* Hero */}
+        {/* Hero */}
 
-  <section className="ww-hero">
+        <section className="ww-hero">
 
-    <div className="ww-hero-decoration ww-decoration-one"></div>
+          <div className="ww-hero-decoration ww-decoration-one"></div>
 
-    <div className="ww-hero-decoration ww-decoration-two"></div>
+          <div className="ww-hero-decoration ww-decoration-two"></div>
 
-    <div className="ww-hero-content">
+          <div className="ww-hero-content">
 
-      <h1>
-        Candidate Dataset Extractor
-      </h1>
+            <h1>
+              Candidate Dataset Extractor
+            </h1>
 
-      <p>
-        Turn candidate information into a structured dataset
-      </p>
+            <p>
+              Turn candidate information into a structured dataset
+            </p>
 
-    </div>
+          </div>
 
-  </section>
+        </section>
 
-  {/* Everything below this stays exactly as it was */}
+
+        {/* Everything below this stays exactly as it was */}
 
 
         {/* ================= INPUT CARD ================= */}
@@ -330,12 +379,15 @@ function Dashboard() {
             <div className="ww-input-footer">
 
               <div className="ww-input-hint">
+
                 <ClipboardPaste size={15} />
 
                 <span>
                   Paste the complete candidate page content
                 </span>
+
               </div>
+
 
               <div className="ww-input-actions">
 
@@ -349,16 +401,19 @@ function Dashboard() {
                   </button>
                 )}
 
+
                 <button
                   onClick={handleExtract}
                   disabled={!rawText.trim() || loading}
                   className="ww-primary-button"
                 >
+
                   <Sparkles size={16} />
 
                   {loading
                     ? "Extracting..."
                     : "Extract Candidates"}
+
                 </button>
 
               </div>
@@ -379,6 +434,7 @@ function Dashboard() {
 
             <div>
               <strong>Extracting candidates</strong>
+
               <span>
                 Processing the information and creating structured records...
               </span>
@@ -437,6 +493,7 @@ function Dashboard() {
                 <Users size={20} />
 
                 <div>
+
                   <strong>
                     {candidates.length}
                   </strong>
@@ -444,6 +501,7 @@ function Dashboard() {
                   <span>
                     Candidates
                   </span>
+
                 </div>
 
               </div>
@@ -492,6 +550,7 @@ function Dashboard() {
                           {index + 1}
                         </td>
 
+
                         {columns.map((column) => (
 
                           <td key={column.key}>
@@ -513,6 +572,7 @@ function Dashboard() {
                           </td>
 
                         ))}
+
 
                         <td className="ww-action-cell">
 
