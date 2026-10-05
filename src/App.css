@@ -1,3 +1,7 @@
+/* =====================================================
+   VITE STARTER STYLES
+   ===================================================== */
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -7,53 +11,62 @@
   border: 2px solid transparent;
   transition: border-color 0.3s;
   margin-bottom: 24px;
+}
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+.counter:hover {
+  border-color: var(--accent-border);
+}
+
+.counter:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .hero {
   position: relative;
+}
 
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
+.hero .base,
+.hero .framework,
+.hero .vite {
+  inset-inline: 0;
+  margin: 0 auto;
+}
 
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
+.hero .base {
+  width: 170px;
+  position: relative;
+  z-index: 0;
+}
 
-  .framework,
-  .vite {
-    position: absolute;
-  }
+.hero .framework,
+.hero .vite {
+  position: absolute;
+}
 
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
+.hero .framework {
+  z-index: 1;
+  top: 34px;
+  height: 28px;
+  transform:
+    perspective(2000px)
+    rotateZ(300deg)
+    rotateX(44deg)
+    rotateY(39deg)
+    scale(1.4);
+}
 
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+.hero .vite {
+  z-index: 0;
+  top: 107px;
+  height: 26px;
+  width: auto;
+  transform:
+    perspective(2000px)
+    rotateZ(300deg)
+    rotateX(40deg)
+    rotateY(39deg)
+    scale(0.8);
 }
 
 #center {
@@ -63,8 +76,10 @@
   place-content: center;
   place-items: center;
   flex-grow: 1;
+}
 
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
+  #center {
     padding: 32px 20px 24px;
     gap: 18px;
   }
@@ -74,22 +89,27 @@
   display: flex;
   border-top: 1px solid var(--border);
   text-align: left;
+}
 
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
+#next-steps > div {
+  flex: 1 1 0;
+  padding: 32px;
+}
+
+@media (max-width: 1024px) {
+  #next-steps > div {
+    padding: 24px 20px;
   }
+}
 
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
+#next-steps .icon {
+  margin-bottom: 16px;
+  width: 22px;
+  height: 22px;
+}
 
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
+  #next-steps {
     flex-direction: column;
     text-align: center;
   }
@@ -97,8 +117,10 @@
 
 #docs {
   border-right: 1px solid var(--border);
+}
 
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
+  #docs {
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
@@ -110,53 +132,59 @@
   display: flex;
   gap: 8px;
   margin: 32px 0 0;
+}
 
-  .logo {
-    height: 18px;
-  }
+#next-steps .logo {
+  height: 18px;
+}
 
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
+#next-steps a {
+  color: var(--text-h);
+  font-size: 16px;
+  border-radius: 6px;
+  background: var(--social-bg);
+  display: flex;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: box-shadow 0.3s;
+}
 
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
+#next-steps a:hover {
+  box-shadow: var(--shadow);
+}
 
-  @media (max-width: 1024px) {
+#next-steps a .button-icon {
+  height: 18px;
+  width: 18px;
+}
+
+@media (max-width: 1024px) {
+  #next-steps ul {
     margin-top: 20px;
     flex-wrap: wrap;
     justify-content: center;
+  }
 
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
+  #next-steps li {
+    flex: 1 1 calc(50% - 8px);
+  }
 
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
+  #next-steps a {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
   }
 }
 
 #spacer {
   height: 88px;
   border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
+}
+
+@media (max-width: 1024px) {
+  #spacer {
     height: 48px;
   }
 }
@@ -164,21 +192,352 @@
 .ticks {
   position: relative;
   width: 100%;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+.ticks::before,
+.ticks::after {
+  content: "";
+  position: absolute;
+  top: -4.5px;
+  border: 5px solid transparent;
+}
+
+.ticks::before {
+  left: 0;
+  border-left-color: var(--border);
+}
+
+.ticks::after {
+  right: 0;
+  border-right-color: var(--border);
+}
+
+
+/* =====================================================
+   GLOBAL BUTTON BEHAVIOR
+   ===================================================== */
+
+button {
+  cursor: pointer !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease,
+    opacity 0.2s ease;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+button:not(:disabled):active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 0.55;
+}
+
+
+/* =====================================================
+   SAVE BUTTON
+   ===================================================== */
+
+.ww-save-button {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #d5e7f9;
+  border-radius: 7px;
+
+  background: #f2f8fe;
+  color: var(--ww-blue);
+
+  cursor: pointer !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ww-save-button:hover:not(:disabled) {
+  background: var(--ww-blue) !important;
+  border-color: var(--ww-blue) !important;
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(23, 105, 194, 0.2);
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   DELETE BUTTON
+   ===================================================== */
+
+.ww-delete-button {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #fecaca;
+  border-radius: 7px;
+
+  background: #fff7f7;
+  color: #dc2626;
+
+  cursor: pointer !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ww-delete-button:hover:not(:disabled) {
+  background: #fee2e2 !important;
+  border-color: #fca5a5 !important;
+  color: #dc2626 !important;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.15);
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   SECONDARY BUTTONS
+   ===================================================== */
+
+.ww-secondary-button {
+  cursor: pointer !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ww-secondary-button:hover:not(:disabled) {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   PRIMARY BUTTONS
+   ===================================================== */
+
+.ww-primary-button {
+  cursor: pointer !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ww-primary-button:hover:not(:disabled) {
+  background: #155eac !important;
+  border-color: #155eac !important;
+  color: white !important;
+  box-shadow: 0 5px 14px rgba(23, 105, 194, 0.22);
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   DOWNLOAD BUTTON
+   ===================================================== */
+
+.ww-download-button {
+  cursor: pointer !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ww-download-button:hover:not(:disabled) {
+  background: #155eac !important;
+  border-color: #155eac !important;
+  color: white !important;
+  box-shadow: 0 5px 14px rgba(23, 105, 194, 0.22);
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   DATABASE BUTTON / HEADER ACTIONS
+   ===================================================== */
+
+.ww-header button {
+  cursor: pointer !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ww-header button:hover:not(:disabled) {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   TABLE INPUTS
+   ===================================================== */
+
+.ww-table input {
+  cursor: text;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ww-table input:hover {
+  border-color: #b8cbe0 !important;
+  background: #fafcff !important;
+}
+
+.ww-table input:focus {
+  border-color: var(--ww-blue) !important;
+  background: white !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(23, 105, 194, 0.1);
+}
+
+
+/* =====================================================
+   SEARCH INPUT
+   ===================================================== */
+
+input[type="text"] {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input[type="text"]:hover {
+  border-color: #b8cbe0 !important;
+}
+
+input[type="text"]:focus {
+  outline: none !important;
+  border-color: var(--ww-blue) !important;
+  box-shadow: 0 0 0 3px rgba(23, 105, 194, 0.1);
+}
+
+
+/* =====================================================
+   LOADING SPINNER
+   ===================================================== */
+
+.ww-spin {
+  animation: ww-spin 1s linear infinite;
+}
+
+@keyframes ww-spin {
+  from {
+    transform: rotate(0deg);
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  to {
+    transform: rotate(360deg);
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+}
+
+
+/* =====================================================
+   TABLE ROW HOVER
+   ===================================================== */
+
+.ww-table tbody tr {
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.ww-table tbody tr:hover {
+  background: #f8fbff;
+}
+
+
+/* =====================================================
+   TABLE ACTION CELL
+   ===================================================== */
+
+.ww-action-cell {
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   GENERIC LINKS
+   ===================================================== */
+
+a {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   DISABLED ELEMENTS
+   ===================================================== */
+
+button:disabled,
+button:disabled:hover {
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 0.55;
+}
+
+* {
+  cursor: crosshair !important;
 }

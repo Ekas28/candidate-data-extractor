@@ -972,3 +972,293 @@ body {
   height: 68px;
   object-fit: contain;
 }
+
+/* =====================================================
+   FORCE BUTTON HOVER + POINTER
+   ===================================================== */
+
+button,
+button *,
+a,
+a * {
+  cursor: pointer !important;
+}
+
+button:disabled,
+button:disabled *,
+button[disabled],
+button[disabled] * {
+  cursor: not-allowed !important;
+}
+
+
+/* All WorkWave buttons */
+
+.ww-primary-button,
+.ww-secondary-button,
+.ww-download-button,
+.ww-delete-button,
+.ww-save-button {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+
+/* Primary */
+
+.ww-primary-button:hover:not(:disabled) {
+  background: #0d4f99 !important;
+  color: #ffffff !important;
+  border-color: #0d4f99 !important;
+  cursor: pointer !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 18px rgba(23, 105, 194, 0.30) !important;
+}
+
+
+/* Secondary */
+
+.ww-secondary-button:hover:not(:disabled) {
+  background: #f1f5f9 !important;
+  color: #10233f !important;
+  border-color: #c9d7e5 !important;
+  cursor: pointer !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 14px rgba(15, 35, 63, 0.10) !important;
+}
+
+
+/* Download */
+
+.ww-download-button:hover:not(:disabled) {
+  background: #0d4f99 !important;
+  color: #ffffff !important;
+  border-color: #0d4f99 !important;
+  cursor: pointer !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 18px rgba(23, 105, 194, 0.30) !important;
+}
+
+
+/* Delete */
+
+.ww-delete-button:hover:not(:disabled) {
+  background: #fff1f2 !important;
+  color: #dc2626 !important;
+  border-color: #fecdd3 !important;
+  cursor: pointer !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 12px rgba(220, 38, 38, 0.15) !important;
+}
+
+
+/* Save */
+
+.ww-save-button:hover:not(:disabled) {
+  background: #1769c2 !important;
+  color: #ffffff !important;
+  border-color: #1769c2 !important;
+  cursor: pointer !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 12px rgba(23, 105, 194, 0.22) !important;
+}
+
+
+/* Disabled */
+
+button:disabled,
+button:disabled:hover {
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 0.45;
+}
+
+
+/* Table inputs */
+
+.ww-table input {
+  cursor: text !important;
+}
+
+.ww-table input:hover {
+  border-color: #8dbce8 !important;
+  background: #fafcff !important;
+}
+
+.ww-table input:focus {
+  cursor: text !important;
+  border-color: #1769c2 !important;
+  background: #ffffff !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(23, 105, 194, 0.10) !important;
+}
+
+
+/* Table row hover */
+
+.ww-table tbody tr:hover td {
+  background: #f9fbfe !important;
+}
+
+/* =====================================================
+   HEADER ACTIONS
+   ===================================================== */
+
+.ww-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+/* =====================================================
+   DATABASE BUTTON
+   ===================================================== */
+
+.ww-database-button {
+  height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 0 17px;
+
+  border: 1px solid #dce6f1;
+  border-radius: 12px;
+
+  background: #ffffff;
+  color: #40556f;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ww-database-button svg {
+  color: #1769c2;
+  transition: color 0.2s ease;
+}
+
+.ww-database-button:hover {
+  background: #f4f8fd !important;
+  border-color: #bcd5ee !important;
+  color: #1769c2 !important;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 14px rgba(23, 105, 194, 0.12);
+}
+
+.ww-database-button:hover svg {
+  color: #1769c2;
+}
+
+.ww-database-button:active {
+  transform: translateY(0);
+}
+
+
+/* =====================================================
+   INTERNAL TOOL
+   ===================================================== */
+
+.ww-header-actions .ww-tool-label {
+  height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 0 16px;
+
+  background: #f4f8fd;
+
+  border: 1px solid #dceafa;
+  border-radius: 12px;
+
+  color: #47617d;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ww-header-actions .ww-tool-label:hover {
+  background: #edf5fd;
+  border-color: #c8def3;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 4px 12px rgba(23, 105, 194, 0.08);
+}
+
+
+/* Status dot */
+
+.ww-header-actions .ww-status-dot {
+  width: 8px;
+  height: 8px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #20a56b;
+
+  box-shadow:
+    0 0 0 4px rgba(32, 165, 107, 0.10);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 600px) {
+  .ww-header-actions {
+    gap: 7px;
+  }
+
+  .ww-database-button {
+    width: 42px;
+    padding: 0;
+  }
+
+  .ww-database-button span {
+    display: none;
+  }
+
+  .ww-header-actions .ww-tool-label {
+    width: 42px;
+    padding: 0;
+  }
+
+  .ww-header-actions .ww-tool-label span:not(.ww-status-dot) {
+    display: none;
+  }
+}
